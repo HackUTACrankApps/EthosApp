@@ -11,7 +11,7 @@ import Foundation
 class NetworkUtils {
     
     public static var panelID: String {
-        return UserDefaults.standard.string(forKey: "panelID") ?? ""
+        return UserDefaults.standard.string(forKey: "userHash") ?? "5A6A06"
     }
     
     static func getEthosBase(completion: @escaping (_ model: Ethos?) -> ()) {
@@ -33,7 +33,6 @@ class NetworkUtils {
                     print(error)
                     completion(nil)
                 }
-                completion(nil)
             }
             }.resume()
     }

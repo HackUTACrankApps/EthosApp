@@ -18,8 +18,8 @@ public class Ethminer {
 	public var per_total_gpus : Int?
 	public var per_alive_rigs : Int?
 	public var per_total_rigs : Int?
-	public var per_hash-gpu : String?
-	public var per_hash-rig : String?
+	public var per_hash_gpu : String?
+	public var per_hash_rig : String?
 	public var current_time : Int?
 
 /**
@@ -59,8 +59,8 @@ public class Ethminer {
 		per_total_gpus = dictionary["per_total_gpus"] as? Int
 		per_alive_rigs = dictionary["per_alive_rigs"] as? Int
 		per_total_rigs = dictionary["per_total_rigs"] as? Int
-		per_hash-gpu = dictionary["per_hash-gpu"] as? String
-		per_hash-rig = dictionary["per_hash-rig"] as? String
+		per_hash_gpu = dictionary["per_hash-gpu"] as? String
+		per_hash_rig = dictionary["per_hash-rig"] as? String
 		current_time = dictionary["current_time"] as? Int
 	}
 
@@ -79,8 +79,8 @@ public class Ethminer {
 		dictionary.setValue(self.per_total_gpus, forKey: "per_total_gpus")
 		dictionary.setValue(self.per_alive_rigs, forKey: "per_alive_rigs")
 		dictionary.setValue(self.per_total_rigs, forKey: "per_total_rigs")
-		dictionary.setValue(self.per_hash-gpu, forKey: "per_hash-gpu")
-		dictionary.setValue(self.per_hash-rig, forKey: "per_hash-rig")
+		dictionary.setValue(self.per_hash_gpu, forKey: "per_hash-gpu")
+		dictionary.setValue(self.per_hash_rig, forKey: "per_hash-rig")
 		dictionary.setValue(self.current_time, forKey: "current_time")
 
 		return dictionary

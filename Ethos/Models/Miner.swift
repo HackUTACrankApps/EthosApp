@@ -85,7 +85,6 @@ public class Miner {
     - returns: A976d1 Instance.
 */
 	required public init?(dictionary: NSDictionary) {
-
 		condition = dictionary["condition"] as? String
 		version = dictionary["version"] as? String
 		driver = dictionary["driver"] as? String

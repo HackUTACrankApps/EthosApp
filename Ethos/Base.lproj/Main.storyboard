@@ -13,7 +13,7 @@
         <!--Root View Controller-->
         <scene sceneID="YaP-70-dJT">
             <objects>
-                <tableViewController id="DPy-40-0wv" customClass="OverviewViewController" sceneMemberID="viewController">
+                <tableViewController id="DPy-40-0wv" customClass="OverviewViewController" customModule="Ethos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Root View Controller" id="bwV-Iu-yOh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0m-nL-dit" userLabel="First Responder" sceneMemberID="firstResponder"/>

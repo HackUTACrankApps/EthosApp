@@ -14,7 +14,7 @@ import Foundation
 
 public class Per_info {
 	public var ethminer : Ethminer?
-	public var ewbf-equihash : Ewbf-equihash?
+	public var ewbf_equihash : Ewbf_equihash?
 
 /**
     Returns an array of models based on given dictionary.
@@ -49,7 +49,7 @@ public class Per_info {
 	required public init?(dictionary: NSDictionary) {
 
 		if (dictionary["ethminer"] != nil) { ethminer = Ethminer(dictionary: dictionary["ethminer"] as! NSDictionary) }
-		if (dictionary["ewbf-equihash"] != nil) { ewbf-equihash = Ewbf-equihash(dictionary: dictionary["ewbf-equihash"] as! NSDictionary) }
+		if (dictionary["ewbf-equihash"] != nil) { ewbf_equihash = Ewbf_equihash(dictionary: dictionary["ewbf-equihash"] as! NSDictionary) }
 	}
 
 		
@@ -63,7 +63,7 @@ public class Per_info {
 		let dictionary = NSMutableDictionary()
 
 		dictionary.setValue(self.ethminer?.dictionaryRepresentation(), forKey: "ethminer")
-		dictionary.setValue(self.ewbf-equihash?.dictionaryRepresentation(), forKey: "ewbf-equihash")
+		dictionary.setValue(self.ewbf_equihash?.dictionaryRepresentation(), forKey: "ewbf-equihash")
 
 		return dictionary
 	}
