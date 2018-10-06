@@ -16,7 +16,13 @@ public class Login: UIViewController {
     
     
     @IBAction func submitHash(_ sender: Any) {
-        NetworkUtils.panelID = userInputField.text
+        let inputField = userInputField?.text ?? ""
+        let regex = "[0-9A-Za-z]"
+        if inputField.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil{
+            NetworkUtils.panelID = userInputField.text as! String
+        } else {
+            userInputField?.text = "Not a valid panel ID..."
+        }
     }
 }
 

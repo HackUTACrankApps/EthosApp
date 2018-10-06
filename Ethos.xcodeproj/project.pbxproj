@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05EAA7E021694FBA0002D1BD /* Temperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAA7DF21694FBA0002D1BD /* Temperatures.swift */; };
+		05EAA7E2216956A70002D1BD /* Watts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAA7E1216956A70002D1BD /* Watts.swift */; };
 		05FFF4B3216939CD00377093 /* Hashes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FFF4B2216939CD00377093 /* Hashes.swift */; };
 		13AA14CD38D0725B1EA21138 /* Pods_EthosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */; };
 		438E77D239EF358AA867CE6D /* Pods_Ethos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9692526F2DCE0BD9409CEA92 /* Pods_Ethos.framework */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05EAA7DF21694FBA0002D1BD /* Temperatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperatures.swift; sourceTree = "<group>"; };
+		05EAA7E1216956A70002D1BD /* Watts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watts.swift; sourceTree = "<group>"; };
 		05FFF4B2216939CD00377093 /* Hashes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashes.swift; sourceTree = "<group>"; };
 		15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EthosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26629712855355DC6BB73C36 /* Pods-EthosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				BE0E86C121692E15008D37C5 /* Per_info.swift */,
 				BE0E86BD21692E15008D37C5 /* Rigs.swift */,
 				05FFF4B2216939CD00377093 /* Hashes.swift */,
+				05EAA7DF21694FBA0002D1BD /* Temperatures.swift */,
+				05EAA7E1216956A70002D1BD /* Watts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,7 +224,6 @@
 				BE0E867321692419008D37C5 /* Frameworks */,
 				BE0E867421692419008D37C5 /* Resources */,
 				6587E6AAD7C63CBD65C5393A /* [CP] Embed Pods Frameworks */,
-				C3793BE80B32837DCC0AB75A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,8 +242,6 @@
 				BE0E86862169241D008D37C5 /* Sources */,
 				BE0E86872169241D008D37C5 /* Frameworks */,
 				BE0E86882169241D008D37C5 /* Resources */,
-				C641AF487DDFA3FCEB549996 /* [CP] Embed Pods Frameworks */,
-				E12022C5AA48D424492A876B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,8 +261,6 @@
 				BE0E86912169241D008D37C5 /* Sources */,
 				BE0E86922169241D008D37C5 /* Frameworks */,
 				BE0E86932169241D008D37C5 /* Resources */,
-				C97F5D5DB1CD99DB9C805C81 /* [CP] Embed Pods Frameworks */,
-				D4085310B40A13F0FE0CC80F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -420,81 +421,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3793BE80B32837DCC0AB75A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C641AF487DDFA3FCEB549996 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C97F5D5DB1CD99DB9C805C81 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4085310B40A13F0FE0CC80F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E12022C5AA48D424492A876B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -504,10 +430,12 @@
 			files = (
 				05FFF4B3216939CD00377093 /* Hashes.swift in Sources */,
 				BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */,
+				05EAA7E2216956A70002D1BD /* Watts.swift in Sources */,
 				BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */,
 				BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */,
 				BE0E86C92169364F008D37C5 /* Login.swift in Sources */,
 				BE0E86AA21692970008D37C5 /* MinerCellView.swift in Sources */,
+				05EAA7E021694FBA0002D1BD /* Temperatures.swift in Sources */,
 				BE0E86C321692E15008D37C5 /* Rigs.swift in Sources */,
 				BE0E86C621692E15008D37C5 /* Miner.swift in Sources */,
 				BE0E867C21692419008D37C5 /* ViewController.swift in Sources */,
