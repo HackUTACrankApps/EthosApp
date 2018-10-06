@@ -57,7 +57,6 @@ public class Ethos {
     - returns: Json4Swift_Base Instance.
 */
 	required public init?(dictionary: NSDictionary) {
-
 		if (dictionary["rigs"] != nil) { rigs = Rigs(dictionary: dictionary["rigs"] as! NSDictionary) }
 		total_hash = dictionary["total_hash"] as? Double
 		total_watts = dictionary["total_watts"] as? Int
@@ -70,32 +69,5 @@ public class Ethos {
 		capacity = dictionary["capacity"] as? String
 		if (dictionary["per_info"] != nil) { per_info = Per_info(dictionary: dictionary["per_info"] as! NSDictionary) }
 		licenses = dictionary["licenses"] as? Int
-	}
-
-		
-/**
-    Returns the dictionary representation for the current instance.
-    
-    - returns: NSDictionary.
-*/
-	public func dictionaryRepresentation() -> NSDictionary {
-
-		let dictionary = NSMutableDictionary()
-
-		dictionary.setValue(self.rigs?.dictionaryRepresentation(), forKey: "rigs")
-		dictionary.setValue(self.total_hash, forKey: "total_hash")
-		dictionary.setValue(self.total_watts, forKey: "total_watts")
-		dictionary.setValue(self.alive_gpus, forKey: "alive_gpus")
-		dictionary.setValue(self.total_gpus, forKey: "total_gpus")
-		dictionary.setValue(self.alive_rigs, forKey: "alive_rigs")
-		dictionary.setValue(self.total_rigs, forKey: "total_rigs")
-		dictionary.setValue(self.current_version, forKey: "current_version")
-		dictionary.setValue(self.avg_temp, forKey: "avg_temp")
-		dictionary.setValue(self.capacity, forKey: "capacity")
-		dictionary.setValue(self.per_info?.dictionaryRepresentation(), forKey: "per_info")
-		dictionary.setValue(self.licenses, forKey: "licenses")
-
-		return dictionary
-	}
-
+    }
 }
