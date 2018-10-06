@@ -11,7 +11,15 @@ import UIKit
 public class OverviewViewController: UITableViewController {
     public override func viewDidLoad() {
         if NetworkUtils.userHash.isEmpty {
+            //Display login stuff
+        }
+        NetworkUtils.getEthosBase { (ethos) in
+            guard let ethosModel = ethos else {
+                //Error occured
+                return
+            }
             
+            //do work here
         }
     }
 }

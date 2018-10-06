@@ -14,8 +14,8 @@ class NetworkUtils {
         return UserDefaults.standard.string(forKey: "userHash") ?? ""
     }
     
-    static func getEthosBase(@escaping completion: (model: Ethos?) -> ()) {
-        let finalURL = URL(string: "http://" + NetworkUtils.userHash + "ethosdistro.com/?json=yes")!
+    static func getEthosBase(completion: @escaping (_ model: Ethos?) -> ()) {
+        let finalURL = URL(string: "http://" + NetworkUtils.userHash + ".ethosdistro.com/?json=yes")!
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if error != nil {
                 print(error ?? "Error loading data")

@@ -26,6 +26,7 @@
 		BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BF21692E15008D37C5 /* Ethos.swift */; };
 		BE0E86C621692E15008D37C5 /* Miner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C021692E15008D37C5 /* Miner.swift */; };
 		BE0E86C721692E15008D37C5 /* Per_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C121692E15008D37C5 /* Per_info.swift */; };
+		BE0E86C92169364F008D37C5 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C82169364F008D37C5 /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		BE0E86BF21692E15008D37C5 /* Ethos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ethos.swift; sourceTree = "<group>"; };
 		BE0E86C021692E15008D37C5 /* Miner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miner.swift; sourceTree = "<group>"; };
 		BE0E86C121692E15008D37C5 /* Per_info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Per_info.swift; sourceTree = "<group>"; };
+		BE0E86C82169364F008D37C5 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 				BE0E86A72169251E008D37C5 /* OverviewViewController.swift */,
 				BE0E86A921692970008D37C5 /* MinerCellView.swift */,
 				BE0E86BA21692B02008D37C5 /* NetworkUtils.swift */,
+				BE0E86C82169364F008D37C5 /* Login.swift */,
 			);
 			path = Ethos;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */,
 				BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */,
 				BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */,
+				BE0E86C92169364F008D37C5 /* Login.swift in Sources */,
 				BE0E86AA21692970008D37C5 /* MinerCellView.swift in Sources */,
 				BE0E86C321692E15008D37C5 /* Rigs.swift in Sources */,
 				BE0E86C621692E15008D37C5 /* Miner.swift in Sources */,

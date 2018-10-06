@@ -9,14 +9,16 @@
 import UIKit
 
 public class MinerCellView: UITableViewCell {
-    var label: UILabel!
+    var title: UILabel!
+    var ip: UILabel!
+    var totalHash: UILabel!
     var icon: UIView!
     var disclousure: UIImageView!
     
     var model: Miner
     
-    init(model: MinerModel) {
+    init(model: Miner) {
+        self.model = model
         super.init(coder: nil)
-        
     }
 }
