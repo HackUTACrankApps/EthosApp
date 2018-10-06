@@ -30,6 +30,7 @@
 		BE0E86C621692E15008D37C5 /* Miner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C021692E15008D37C5 /* Miner.swift */; };
 		BE0E86C721692E15008D37C5 /* Per_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C121692E15008D37C5 /* Per_info.swift */; };
 		BE0E86C92169364F008D37C5 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C82169364F008D37C5 /* Login.swift */; };
+		BE0E86CB21697C8A008D37C5 /* OverviewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86CA21697C8A008D37C5 /* OverviewCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		BE0E86C021692E15008D37C5 /* Miner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miner.swift; sourceTree = "<group>"; };
 		BE0E86C121692E15008D37C5 /* Per_info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Per_info.swift; sourceTree = "<group>"; };
 		BE0E86C82169364F008D37C5 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		BE0E86CA21697C8A008D37C5 /* OverviewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCellView.swift; sourceTree = "<group>"; };
 		D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 				BE0E86A921692970008D37C5 /* MinerCellView.swift */,
 				BE0E86BA21692B02008D37C5 /* NetworkUtils.swift */,
 				BE0E86C82169364F008D37C5 /* Login.swift */,
+				BE0E86CA21697C8A008D37C5 /* OverviewCellView.swift */,
 			);
 			path = Ethos;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				BE0E867321692419008D37C5 /* Frameworks */,
 				BE0E867421692419008D37C5 /* Resources */,
 				6587E6AAD7C63CBD65C5393A /* [CP] Embed Pods Frameworks */,
+				5B4294CD010D83D1084BE112 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +246,8 @@
 				BE0E86862169241D008D37C5 /* Sources */,
 				BE0E86872169241D008D37C5 /* Frameworks */,
 				BE0E86882169241D008D37C5 /* Resources */,
+				79E10EECE63A48DB6D67C0AF /* [CP] Embed Pods Frameworks */,
+				6762F7AB4138A5BF9ED21BD9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +267,8 @@
 				BE0E86912169241D008D37C5 /* Sources */,
 				BE0E86922169241D008D37C5 /* Frameworks */,
 				BE0E86932169241D008D37C5 /* Resources */,
+				ED727C8BD79B8F0C5CE678CD /* [CP] Embed Pods Frameworks */,
+				2D1CBBB62B4928AB2B2C7349 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,6 +351,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D1CBBB62B4928AB2B2C7349 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3170A5F4C9310D2B567798BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +382,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B4294CD010D83D1084BE112 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6587E6AAD7C63CBD65C5393A /* [CP] Embed Pods Frameworks */ = {
@@ -385,6 +423,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6762F7AB4138A5BF9ED21BD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6C8EA6B8118C25861105A052 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +454,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79E10EECE63A48DB6D67C0AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9B50007DF0EFFB30C4FCE2B /* [CP] Check Pods Manifest.lock */ = {
@@ -421,6 +489,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED727C8BD79B8F0C5CE678CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -431,6 +514,7 @@
 				05FFF4B3216939CD00377093 /* Hashes.swift in Sources */,
 				BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */,
 				05EAA7E2216956A70002D1BD /* Watts.swift in Sources */,
+				BE0E86CB21697C8A008D37C5 /* OverviewCellView.swift in Sources */,
 				BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */,
 				BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */,
 				BE0E86C92169364F008D37C5 /* Login.swift in Sources */,

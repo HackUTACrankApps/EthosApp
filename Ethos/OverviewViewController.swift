@@ -11,7 +11,7 @@ import UIKit
 
 public class OverviewViewController: UITableViewController {
     public var minerList: [Miner] = []
-    public var statusHeader = UILabel()
+    public var model: Ethos!
     
     public override func viewDidLoad() {
         if NetworkUtils.panelID.isEmpty {
@@ -25,7 +25,8 @@ public class OverviewViewController: UITableViewController {
         
         tableView.separatorStyle = .none
         tableView.register(MinerCellView.classForCoder(), forCellReuseIdentifier: "cell")
-        
+        tableView.register(OverviewCellView.classForCoder(), forCellReuseIdentifier: "overview")
+
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.largeTitleDisplayMode = .always
         
@@ -61,29 +62,11 @@ public class OverviewViewController: UITableViewController {
                 return
             }
             
+            self.model = ethosModel
             self.minerList = (ethosModel.rigs?.miners ?? []).sorted(by: { (A, B) -> Bool in
                 return A.condition != "mining" || (Int(A.miner_instance ?? "0") ?? 0) < (Int(B.miner_instance ?? "0") ?? 0)
             })
             DispatchQueue.main.async {
-                let titleString = NSMutableAttributedString(string: "")
-                let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
-                let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
-                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
-                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
-                
-                //Todo these
-                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
-                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
-                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
-                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
-                //end todo
-                
-                self.statusHeader.numberOfLines = 0
-                self.statusHeader.attributedText = titleString
-                self.statusHeader.heightAnchor == 100
-                self.statusHeader.frame = self.statusHeader.frame.inset(by: UIEdgeInsets(top: CGFloat(5), left: CGFloat(15), bottom: CGFloat(15), right: CGFloat(15)))
-                self.tableView.tableHeaderView = self.statusHeader
-
                 self.tableView.reloadData()
                 self.title = "\(ethosModel.alive_rigs ?? 0)/\(ethosModel.total_rigs ?? 0)"
                 self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -93,14 +76,33 @@ public class OverviewViewController: UITableViewController {
     }
     
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MinerCellView
-        cell.setMiner(model: minerList[indexPath.row])
-        cell.preservesSuperviewLayoutMargins = false
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "overview") as! OverviewCellView
+            cell.preservesSuperviewLayoutMargins = false
+            let titleString = NSMutableAttributedString(string: "")
+            let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+            let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            titleString.append(NSAttributedString(string: "Temp: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.avg_temp ?? 0)°C\n", attributes: boldAttributes))
+            
+            //Todo these
+            titleString.append(NSAttributedString(string: "Alive GPUs: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.alive_gpus ?? 0)\n", attributes: boldAttributes))
+            titleString.append(NSAttributedString(string: "Hash rate: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)", attributes: boldAttributes))
+            
+            cell.title.attributedText = titleString
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MinerCellView
+            cell.setMiner(model: minerList[indexPath.row - 1])
+            cell.preservesSuperviewLayoutMargins = false
+            return cell
+        }
     }
     
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return minerList.count
+        return minerList.count + (minerList.count > 0 ? 1 : 0)
     }
     
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

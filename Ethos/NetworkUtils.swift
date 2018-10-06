@@ -12,10 +12,10 @@ class NetworkUtils {
     
     public static var panelID: String {
         get {
-            return UserDefaults.standard.string(forKey: "panelID") ?? ""
+            return UserDefaults.standard.string(forKey: "panelID4") ?? ""
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "panelID")
+            UserDefaults.standard.set(newValue, forKey: "panelID4")
             UserDefaults.standard.synchronize()
         }
     }
