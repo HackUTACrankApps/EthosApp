@@ -6,13 +6,21 @@
 //  Copyright © 2018 Crank Apps. All rights reserved.
 //
 
+import Anchorage
 import UIKit
 
 public class OverviewViewController: UITableViewController {
     public var minerList: [Miner] = []
+    public var statusHeader = UILabel()
+    
     public override func viewDidLoad() {
         if NetworkUtils.panelID.isEmpty {
-            //Display login stuff
+            if let loginController: Login = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")  as? Login {
+                loginController.modalPresentationStyle = .fullScreen
+                loginController.source = self
+                self.present(loginController, animated: true, completion: { () -> Void in
+                })
+            }
         }
         
         tableView.separatorStyle = .none
@@ -32,9 +40,10 @@ public class OverviewViewController: UITableViewController {
     }
     
     override public func viewDidAppear(_ animated: Bool) {
-        if minerList.isEmpty {
+        if minerList.isEmpty && !NetworkUtils.panelID.isEmpty{
             loadData()
         }
+        
         self.automaticallyAdjustsScrollViewInsets = false
         self.edgesForExtendedLayout = UIRectEdge.all
         self.extendedLayoutIncludesOpaqueBars = true
@@ -48,14 +57,33 @@ public class OverviewViewController: UITableViewController {
         self.tableView.refreshControl?.beginRefreshing()
         NetworkUtils.getEthosBase { (ethos) in
             guard let ethosModel = ethos else {
-                //Error occured
-                print("Uh oh..")
+                //todo somehow show an error
                 return
             }
+            
             self.minerList = (ethosModel.rigs?.miners ?? []).sorted(by: { (A, B) -> Bool in
-                return A.condition != "mining" || Int(A.miner_instance ?? "0") > Int(B.miner_instance ?? "0")
+                return A.condition != "mining" || (Int(A.miner_instance ?? "0") ?? 0) < (Int(B.miner_instance ?? "0") ?? 0)
             })
             DispatchQueue.main.async {
+                let titleString = NSMutableAttributedString(string: "")
+                let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+                let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
+                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
+                
+                //Todo these
+                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
+                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
+                titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
+                titleString.append(NSAttributedString(string: "\(ethosModel.avg_temp ?? 0)°C", attributes: boldAttributes))
+                //end todo
+                
+                self.statusHeader.numberOfLines = 0
+                self.statusHeader.attributedText = titleString
+                self.statusHeader.heightAnchor == 100
+                self.statusHeader.frame = self.statusHeader.frame.inset(by: UIEdgeInsets(top: CGFloat(5), left: CGFloat(15), bottom: CGFloat(15), right: CGFloat(15)))
+                self.tableView.tableHeaderView = self.statusHeader
+
                 self.tableView.reloadData()
                 self.title = "\(ethosModel.alive_rigs ?? 0)/\(ethosModel.total_rigs ?? 0)"
                 self.navigationController?.navigationBar.prefersLargeTitles = true
