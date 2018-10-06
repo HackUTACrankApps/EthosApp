@@ -66,4 +66,28 @@ class NetworkUtils {
             }
             }.resume()
     }
+    
+    static func getTemperature(rigID: String,completion: @escaping (_ model: Temperatures?) -> ()) {
+        let tempsURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.panelID + "&type=miner_hashes&json=yes")!
+        URLSession.shared.dataTask(with: tempsURL) { (data, _, error) in
+            if error != nil {
+                print(error ?? "Error loading data")
+                //todo handle this
+                completion(nil)
+            } else {
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary else {
+                        return
+                    }
+                    
+                    let tempsModel = Temperatures.init(dictionary: json)
+                    completion(tempsModel)
+                } catch let error as NSError {
+                    print(error)
+                    completion(nil)
+                }
+                completion(nil)
+            }
+            }.resume()
+    }
 }

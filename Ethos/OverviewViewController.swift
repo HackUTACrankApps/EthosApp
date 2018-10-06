@@ -11,7 +11,7 @@ import UIKit
 public class OverviewViewController: UITableViewController {
     public var minerList: [Miner] = []
     public override func viewDidLoad() {
-        if NetworkUtils.userHash.isEmpty {
+        if NetworkUtils.panelID.isEmpty {
             //Display login stuff
         }
         

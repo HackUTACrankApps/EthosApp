@@ -16,7 +16,7 @@ public class Login: UIViewController {
     
     
     @IBAction func submitHash(_ sender: Any) {
-        NetworkUtils.panelID = userInputField.text
+        NetworkUtils.panelID = userInputField?.text ?? ""
     }
 }
 
