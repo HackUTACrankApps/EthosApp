@@ -28,11 +28,7 @@ public class Hashes {
     required public init?(dictionary: NSDictionary) {
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
-<<<<<<< HEAD
-                gpus?.setValue(dictionary[item], forKey: item as! String)
-=======
                 gpus?.setValue(dictionary[item], forKey: item as? String ?? "")
->>>>>>> UI improvements, Mining rig status
             }
         }
     }
