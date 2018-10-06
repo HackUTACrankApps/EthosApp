@@ -12,7 +12,7 @@ import Foundation
 
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-public class hashes {
+public class Hashes {
     public var gpus: NSDictionary?
     
     /**
