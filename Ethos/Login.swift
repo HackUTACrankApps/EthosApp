@@ -10,6 +10,8 @@ import UIKit
 
 public class Login: UIViewController {
     
+    var source: OverviewViewController?
+    
     @IBOutlet weak var ethos_logo: UIImageView!
     
     @IBOutlet weak var userInputField: UITextField!
