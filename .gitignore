@@ -1,5 +1,6 @@
 # Xcode workspace user data
 Ethos.xcworkspace/
+Ethos.xcodeproj/
 Ethos.xcworkspace/xcuserdata/sammyhamwi.xcuserdatad/UserInterfaceState.xcuserstate
 .DS_Store
 Pods/*
