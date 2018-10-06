@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872256"
+            timestampString = "560553371.6353379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "NetworkUtils"
-            landmarkType = "3">
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "panelID"
+            landmarkType = "24">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -58,13 +58,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872315"
+            timestampString = "560553371.635463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "panelID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ethos/NetworkUtils.swift"
+            timestampString = "560553371.6355129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "NetworkUtils"
-            landmarkType = "3">
+            landmarkName = "panelID"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,11 +90,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872429"
+            timestampString = "560553371.63556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "panelID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ethos/NetworkUtils.swift"
+            timestampString = "560553371.635608"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "panelID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ethos/NetworkUtils.swift"
+            timestampString = "560553371.635655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "panelID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ethos/NetworkUtils.swift"
+            timestampString = "560553371.635702"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "NetworkUtils"
             landmarkType = "3">
          </BreakpointContent>
@@ -90,93 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872486"
+            timestampString = "560553371.635748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.87254"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
             landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872595"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.87265"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872705"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.8727601"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -218,13 +202,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872813"
+            timestampString = "560553371.635794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,13 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872866"
+            timestampString = "560553371.635839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -250,13 +234,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.87292"
+            timestampString = "560553371.635885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -266,13 +250,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ethos/NetworkUtils.swift"
-            timestampString = "560548567.872973"
+            timestampString = "560553371.635931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "getEthosBase(completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

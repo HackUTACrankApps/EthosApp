@@ -16,6 +16,7 @@ public class Miner {
 	public var condition : String?
 	public var version : String?
 	public var driver : String?
+    public var minerId: String?
 	public var miner : String?
 	public var gpus : String?
 	public var miner_instance : String?
@@ -64,12 +65,12 @@ public class Miner {
 	public var core : String?
 	public var mem : String?
 
-    public class func modelsFromDictionaryArray(array:NSArray) -> [Miner]
+    public class func modelsFromDictionaryArray(array:NSArray, id: String) -> [Miner]
     {
         var models:[Miner] = []
         for item in array
         {
-            models.append(Miner(dictionary: item as! NSDictionary)!)
+            models.append(Miner(dictionary: item as! NSDictionary, id: id)!)
         }
         return models
     }
@@ -84,12 +85,13 @@ public class Miner {
 
     - returns: A976d1 Instance.
 */
-	required public init?(dictionary: NSDictionary) {
+    required public init?(dictionary: NSDictionary, id: String) {
 		condition = dictionary["condition"] as? String
 		version = dictionary["version"] as? String
 		driver = dictionary["driver"] as? String
 		miner = dictionary["miner"] as? String
 		gpus = dictionary["gpus"] as? String
+        minerId = id
 		miner_instance = dictionary["miner_instance"] as? String
 		miner_hashes = dictionary["miner_hashes"] as? String
 		bioses = dictionary["bioses"] as? String

@@ -48,7 +48,7 @@ public class Rigs {
 	required public init?(dictionary: NSDictionary) {
         miners = [Miner]()
         for item in dictionary.allKeys {
-            miners!.append(Miner(dictionary: dictionary[item] as! NSDictionary)!)
+            miners!.append(Miner(dictionary: dictionary[item] as! NSDictionary, id: item as! String)!)
         }
 	}
 }

@@ -37,6 +37,7 @@ public class MinerCellView: UITableViewCell {
         
         self.title.topAnchor == self.contentView.topAnchor + 8
         self.title.leftAnchor == self.icon.rightAnchor + 8
+        self.title.heightAnchor == 50
         
         self.ip.topAnchor == self.title.bottomAnchor + 4
         self.ip.leftAnchor == self.icon.rightAnchor + 8
@@ -48,14 +49,18 @@ public class MinerCellView: UITableViewCell {
         self.disclosure.rightAnchor == self.contentView.rightAnchor - 8
         self.disclosure.tintColor = UIColor.darkGray
         self.disclosure.contentMode = .scaleAspectFit
+        title.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+        ip.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+        ip.heightAnchor == 10
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        var frame = contentView.frame
-        contentView.frame = frame.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+
+        let f = self.contentView.frame
+        self.contentView.frame = f.inset(by: UIEdgeInsets(top: CGFloat(5), left: CGFloat(15), bottom: CGFloat(15), right: CGFloat(15)))
     }
-    
+
     func configureView() {
         self.title = UILabel().then {
             $0.font = UIFont.boldSystemFont(ofSize: 18)
@@ -80,14 +85,54 @@ public class MinerCellView: UITableViewCell {
         self.contentView.addSubview(icon)
         self.contentView.addSubview(disclosure)
         
+        self.contentView.layer.masksToBounds = true
+        self.contentView.clipsToBounds = false
         self.contentView.layer.cornerRadius = 15
+        self.contentView.backgroundColor = .white
+        self.backgroundColor = UIColor(hexString: "#F1F3F4")
+        self.contentView.elevate(2)
     }
     
     func setMiner(model: Miner) {
         self.model = model
         
-        self.title.text = model.miner
+        self.title.text = "\(model.minerId!) (\(model.miner_instance ?? "0")/\(model.gpus ?? "0"))"
         self.ip.text = model.ip
-        //
+        
+        if let condition = model.condition {
+            if condition == "mining" {
+                self.icon.backgroundColor = UIColor.green
+            } else {
+                self.icon.backgroundColor = UIColor.red
+            }
+        }
+    }
+}
+extension UIView {
+    func elevate(_ elevation: Double) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: elevation)
+        self.layer.shadowRadius = CGFloat(elevation)
+        self.layer.shadowOpacity = 0.24
+    }
+}
+extension UIColor {
+    convenience init(hexString: String) {
+        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int = UInt32()
+        Scanner(string: hex).scanHexInt32(&int)
+        let a, r, g, b: UInt32
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
+        }
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
