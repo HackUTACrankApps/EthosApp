@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13AA14CD38D0725B1EA21138 /* Pods_EthosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */; };
+		438E77D239EF358AA867CE6D /* Pods_Ethos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9692526F2DCE0BD9409CEA92 /* Pods_Ethos.framework */; };
+		76BB14648D6E227F0F8426B3 /* Pods_EthosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE291048A8BA27B1976D564 /* Pods_EthosTests.framework */; };
 		BE0E867A21692419008D37C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E867921692419008D37C5 /* AppDelegate.swift */; };
 		BE0E867C21692419008D37C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E867B21692419008D37C5 /* ViewController.swift */; };
 		BE0E867F21692419008D37C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0E867D21692419008D37C5 /* Main.storyboard */; };
@@ -14,6 +17,7 @@
 		BE0E86842169241D008D37C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0E86822169241D008D37C5 /* LaunchScreen.storyboard */; };
 		BE0E868F2169241D008D37C5 /* EthosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E868E2169241D008D37C5 /* EthosTests.swift */; };
 		BE0E869A2169241D008D37C5 /* EthosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86992169241D008D37C5 /* EthosUITests.swift */; };
+		BE0E86A82169251E008D37C5 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86A72169251E008D37C5 /* OverviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EthosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26629712855355DC6BB73C36 /* Pods-EthosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2D63F01F9172C067942C9C68 /* Pods-Ethos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ethos/Pods-Ethos.debug.xcconfig"; sourceTree = "<group>"; };
+		448D658391861D5E2EDB2B59 /* Pods-Ethos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ethos/Pods-Ethos.release.xcconfig"; sourceTree = "<group>"; };
+		5AE291048A8BA27B1976D564 /* Pods_EthosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EthosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9692526F2DCE0BD9409CEA92 /* Pods_Ethos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ethos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6E46ED42115B429D7C8341 /* Pods-EthosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BB1FF20F2AA9EAEEF1877D28 /* Pods-EthosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE0E867621692419008D37C5 /* Ethos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ethos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0E867921692419008D37C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0E867B21692419008D37C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,8 @@
 		BE0E86952169241D008D37C5 /* EthosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EthosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0E86992169241D008D37C5 /* EthosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthosUITests.swift; sourceTree = "<group>"; };
 		BE0E869B2169241D008D37C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0E86A72169251E008D37C5 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438E77D239EF358AA867CE6D /* Pods_Ethos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76BB14648D6E227F0F8426B3 /* Pods_EthosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AA14CD38D0725B1EA21138 /* Pods_EthosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F20F57CE084D3ED1381C9A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D63F01F9172C067942C9C68 /* Pods-Ethos.debug.xcconfig */,
+				448D658391861D5E2EDB2B59 /* Pods-Ethos.release.xcconfig */,
+				9B6E46ED42115B429D7C8341 /* Pods-EthosTests.debug.xcconfig */,
+				D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */,
+				BB1FF20F2AA9EAEEF1877D28 /* Pods-EthosUITests.debug.xcconfig */,
+				26629712855355DC6BB73C36 /* Pods-EthosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BE0E866D21692418008D37C5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,8 @@
 				BE0E868D2169241D008D37C5 /* EthosTests */,
 				BE0E86982169241D008D37C5 /* EthosUITests */,
 				BE0E867721692419008D37C5 /* Products */,
+				0F20F57CE084D3ED1381C9A2 /* Pods */,
+				FB6869C56782286C97D51936 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +135,7 @@
 				BE0E86802169241D008D37C5 /* Assets.xcassets */,
 				BE0E86822169241D008D37C5 /* LaunchScreen.storyboard */,
 				BE0E86852169241D008D37C5 /* Info.plist */,
+				BE0E86A72169251E008D37C5 /* OverviewViewController.swift */,
 			);
 			path = Ethos;
 			sourceTree = "<group>";
@@ -125,6 +158,16 @@
 			path = EthosUITests;
 			sourceTree = "<group>";
 		};
+		FB6869C56782286C97D51936 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9692526F2DCE0BD9409CEA92 /* Pods_Ethos.framework */,
+				5AE291048A8BA27B1976D564 /* Pods_EthosTests.framework */,
+				15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0E869E2169241D008D37C5 /* Build configuration list for PBXNativeTarget "Ethos" */;
 			buildPhases = (
+				3170A5F4C9310D2B567798BB /* [CP] Check Pods Manifest.lock */,
 				BE0E867221692419008D37C5 /* Sources */,
 				BE0E867321692419008D37C5 /* Frameworks */,
 				BE0E867421692419008D37C5 /* Resources */,
+				6587E6AAD7C63CBD65C5393A /* [CP] Embed Pods Frameworks */,
+				C3793BE80B32837DCC0AB75A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0E86A12169241D008D37C5 /* Build configuration list for PBXNativeTarget "EthosTests" */;
 			buildPhases = (
+				B9B50007DF0EFFB30C4FCE2B /* [CP] Check Pods Manifest.lock */,
 				BE0E86862169241D008D37C5 /* Sources */,
 				BE0E86872169241D008D37C5 /* Frameworks */,
 				BE0E86882169241D008D37C5 /* Resources */,
+				C641AF487DDFA3FCEB549996 /* [CP] Embed Pods Frameworks */,
+				E12022C5AA48D424492A876B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0E86A42169241D008D37C5 /* Build configuration list for PBXNativeTarget "EthosUITests" */;
 			buildPhases = (
+				6C8EA6B8118C25861105A052 /* [CP] Check Pods Manifest.lock */,
 				BE0E86912169241D008D37C5 /* Sources */,
 				BE0E86922169241D008D37C5 /* Frameworks */,
 				BE0E86932169241D008D37C5 /* Resources */,
+				C97F5D5DB1CD99DB9C805C81 /* [CP] Embed Pods Frameworks */,
+				D4085310B40A13F0FE0CC80F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +303,166 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3170A5F4C9310D2B567798BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ethos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6587E6AAD7C63CBD65C5393A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Anchorage/Anchorage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Anchorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C8EA6B8118C25861105A052 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EthosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9B50007DF0EFFB30C4FCE2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EthosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3793BE80B32837DCC0AB75A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ethos/Pods-Ethos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C641AF487DDFA3FCEB549996 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C97F5D5DB1CD99DB9C805C81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4085310B40A13F0FE0CC80F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E12022C5AA48D424492A876B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE0E867221692419008D37C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +470,7 @@
 			files = (
 				BE0E867C21692419008D37C5 /* ViewController.swift in Sources */,
 				BE0E867A21692419008D37C5 /* AppDelegate.swift in Sources */,
+				BE0E86A82169251E008D37C5 /* OverviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,14 +643,12 @@
 		};
 		BE0E869F2169241D008D37C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D63F01F9172C067942C9C68 /* Pods-Ethos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ethos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.Ethos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -447,14 +658,12 @@
 		};
 		BE0E86A02169241D008D37C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448D658391861D5E2EDB2B59 /* Pods-Ethos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ethos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.Ethos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -464,16 +673,13 @@
 		};
 		BE0E86A22169241D008D37C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B6E46ED42115B429D7C8341 /* Pods-EthosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -484,16 +690,13 @@
 		};
 		BE0E86A32169241D008D37C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -504,15 +707,12 @@
 		};
 		BE0E86A52169241D008D37C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB1FF20F2AA9EAEEF1877D28 /* Pods-EthosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -523,15 +723,12 @@
 		};
 		BE0E86A62169241D008D37C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26629712855355DC6BB73C36 /* Pods-EthosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
