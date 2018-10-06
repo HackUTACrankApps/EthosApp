@@ -10,4 +10,13 @@ import UIKit
 
 public class Login: UIViewController {
     
+    @IBOutlet weak var ethos_logo: UIImageView!
+    
+    @IBOutlet weak var userInputField: UITextField!
+    
+    
+    @IBAction func submitHash(_ sender: Any) {
+        NetworkUtils.panelID = userInputField.text
+    }
 }
+
