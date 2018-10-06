@@ -10,12 +10,12 @@ import Foundation
 
 class NetworkUtils {
     
-    public static var userID: String {
-        return UserDefaults.standard.string(forKey: "userHash") ?? ""
+    public static var panelID: String {
+        return UserDefaults.standard.string(forKey: "panelID") ?? ""
     }
     
     static func getEthosBase(completion: @escaping (_ model: Ethos?) -> ()) {
-        let finalURL = URL(string: "http://" + NetworkUtils.userHash + ".ethosdistro.com/?json=yes")!
+        let finalURL = URL(string: "http://" + NetworkUtils.panelID + ".ethosdistro.com/?json=yes")!
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if error != nil {
                 print(error ?? "Error loading data")
@@ -39,7 +39,7 @@ class NetworkUtils {
     }
     
     static func getHashes(rigID: String,completion: @escaping (_ model: Hashes?) -> ()) {
-        let hashesURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.userHash + "&type=miner_hashes&json=yes")!
+        let hashesURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.panelID + "&type=miner_hashes&json=yes")!
         URLSession.shared.dataTask(with: hashesURL) { (data, _, error) in
             if error != nil {
                 print(error ?? "Error loading data")
