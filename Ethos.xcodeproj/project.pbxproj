@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05FFF4B3216939CD00377093 /* hashes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FFF4B2216939CD00377093 /* hashes.swift */; };
+		05FFF4B3216939CD00377093 /* Hashes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FFF4B2216939CD00377093 /* Hashes.swift */; };
 		13AA14CD38D0725B1EA21138 /* Pods_EthosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */; };
 		438E77D239EF358AA867CE6D /* Pods_Ethos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9692526F2DCE0BD9409CEA92 /* Pods_Ethos.framework */; };
 		76BB14648D6E227F0F8426B3 /* Pods_EthosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE291048A8BA27B1976D564 /* Pods_EthosTests.framework */; };
@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05FFF4B2216939CD00377093 /* hashes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hashes.swift; sourceTree = "<group>"; };
+		05FFF4B2216939CD00377093 /* Hashes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashes.swift; sourceTree = "<group>"; };
 		15CED5A85A3353D5BAAE5F40 /* Pods_EthosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EthosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26629712855355DC6BB73C36 /* Pods-EthosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosUITests/Pods-EthosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2D63F01F9172C067942C9C68 /* Pods-Ethos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ethos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ethos/Pods-Ethos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 				BE0E86BF21692E15008D37C5 /* Ethos.swift */,
 				BE0E86C121692E15008D37C5 /* Per_info.swift */,
 				BE0E86BD21692E15008D37C5 /* Rigs.swift */,
-				05FFF4B2216939CD00377093 /* hashes.swift */,
+				05FFF4B2216939CD00377093 /* Hashes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05FFF4B3216939CD00377093 /* hashes.swift in Sources */,
+				05FFF4B3216939CD00377093 /* Hashes.swift in Sources */,
 				BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */,
 				BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */,
 				BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */,
