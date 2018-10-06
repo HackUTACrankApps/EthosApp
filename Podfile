@@ -8,7 +8,6 @@ target 'Ethos' do
 
   pod 'Alamofire', '~> 4.3'
   pod 'SwiftyJSON'
-  pod 'RealmSwift'
   pod 'Anchorage'
   pod 'Then'
 

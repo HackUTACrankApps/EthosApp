@@ -18,6 +18,14 @@
 		BE0E868F2169241D008D37C5 /* EthosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E868E2169241D008D37C5 /* EthosTests.swift */; };
 		BE0E869A2169241D008D37C5 /* EthosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86992169241D008D37C5 /* EthosUITests.swift */; };
 		BE0E86A82169251E008D37C5 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86A72169251E008D37C5 /* OverviewViewController.swift */; };
+		BE0E86AA21692970008D37C5 /* MinerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86A921692970008D37C5 /* MinerCellView.swift */; };
+		BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BA21692B02008D37C5 /* NetworkUtils.swift */; };
+		BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BC21692E15008D37C5 /* Ethminer.swift */; };
+		BE0E86C321692E15008D37C5 /* Rigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BD21692E15008D37C5 /* Rigs.swift */; };
+		BE0E86C421692E15008D37C5 /* Ewbf-equihash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BE21692E15008D37C5 /* Ewbf-equihash.swift */; };
+		BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86BF21692E15008D37C5 /* Ethos.swift */; };
+		BE0E86C621692E15008D37C5 /* Miner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C021692E15008D37C5 /* Miner.swift */; };
+		BE0E86C721692E15008D37C5 /* Per_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0E86C121692E15008D37C5 /* Per_info.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +68,14 @@
 		BE0E86992169241D008D37C5 /* EthosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthosUITests.swift; sourceTree = "<group>"; };
 		BE0E869B2169241D008D37C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0E86A72169251E008D37C5 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		BE0E86A921692970008D37C5 /* MinerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinerCellView.swift; sourceTree = "<group>"; };
+		BE0E86BA21692B02008D37C5 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		BE0E86BC21692E15008D37C5 /* Ethminer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ethminer.swift; sourceTree = "<group>"; };
+		BE0E86BD21692E15008D37C5 /* Rigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rigs.swift; sourceTree = "<group>"; };
+		BE0E86BE21692E15008D37C5 /* Ewbf-equihash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ewbf-equihash.swift"; sourceTree = "<group>"; };
+		BE0E86BF21692E15008D37C5 /* Ethos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ethos.swift; sourceTree = "<group>"; };
+		BE0E86C021692E15008D37C5 /* Miner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miner.swift; sourceTree = "<group>"; };
+		BE0E86C121692E15008D37C5 /* Per_info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Per_info.swift; sourceTree = "<group>"; };
 		D39C09BF7DF1817AA13F57F3 /* Pods-EthosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EthosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EthosTests/Pods-EthosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +145,7 @@
 		BE0E867821692419008D37C5 /* Ethos */ = {
 			isa = PBXGroup;
 			children = (
+				BE0E86AD21692A7E008D37C5 /* Models */,
 				BE0E867921692419008D37C5 /* AppDelegate.swift */,
 				BE0E867B21692419008D37C5 /* ViewController.swift */,
 				BE0E867D21692419008D37C5 /* Main.storyboard */,
@@ -136,6 +153,8 @@
 				BE0E86822169241D008D37C5 /* LaunchScreen.storyboard */,
 				BE0E86852169241D008D37C5 /* Info.plist */,
 				BE0E86A72169251E008D37C5 /* OverviewViewController.swift */,
+				BE0E86A921692970008D37C5 /* MinerCellView.swift */,
+				BE0E86BA21692B02008D37C5 /* NetworkUtils.swift */,
 			);
 			path = Ethos;
 			sourceTree = "<group>";
@@ -156,6 +175,19 @@
 				BE0E869B2169241D008D37C5 /* Info.plist */,
 			);
 			path = EthosUITests;
+			sourceTree = "<group>";
+		};
+		BE0E86AD21692A7E008D37C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE0E86C021692E15008D37C5 /* Miner.swift */,
+				BE0E86BC21692E15008D37C5 /* Ethminer.swift */,
+				BE0E86BE21692E15008D37C5 /* Ewbf-equihash.swift */,
+				BE0E86BF21692E15008D37C5 /* Ethos.swift */,
+				BE0E86C121692E15008D37C5 /* Per_info.swift */,
+				BE0E86BD21692E15008D37C5 /* Rigs.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FB6869C56782286C97D51936 /* Frameworks */ = {
@@ -468,9 +500,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0E86BB21692B02008D37C5 /* NetworkUtils.swift in Sources */,
+				BE0E86C221692E15008D37C5 /* Ethminer.swift in Sources */,
+				BE0E86C521692E15008D37C5 /* Ethos.swift in Sources */,
+				BE0E86AA21692970008D37C5 /* MinerCellView.swift in Sources */,
+				BE0E86C321692E15008D37C5 /* Rigs.swift in Sources */,
+				BE0E86C621692E15008D37C5 /* Miner.swift in Sources */,
 				BE0E867C21692419008D37C5 /* ViewController.swift in Sources */,
 				BE0E867A21692419008D37C5 /* AppDelegate.swift in Sources */,
 				BE0E86A82169251E008D37C5 /* OverviewViewController.swift in Sources */,
+				BE0E86C721692E15008D37C5 /* Per_info.swift in Sources */,
+				BE0E86C421692E15008D37C5 /* Ewbf-equihash.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +688,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ethos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.Ethos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -663,7 +706,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ethos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.Ethos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -679,7 +725,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -696,7 +746,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -712,7 +766,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -728,7 +786,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EthosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = apps.crank.EthosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

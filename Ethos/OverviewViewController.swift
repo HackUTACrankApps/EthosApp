@@ -9,5 +9,9 @@
 import UIKit
 
 public class OverviewViewController: UITableViewController {
-    
+    public override func viewDidLoad() {
+        if NetworkUtils.userHash.isEmpty {
+            
+        }
+    }
 }
