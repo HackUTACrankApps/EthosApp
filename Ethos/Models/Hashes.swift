@@ -32,7 +32,6 @@ public class Hashes {
                 //print(item)
                 //print(dictionary[item])
                 gpus?.setValue(dictionary[item], forKey: item as! String )
-                dump(gpus?[item as! String])
             }
         }
     }

@@ -21,7 +21,7 @@ public class MinerCellView: UITableViewCell {
         
     var model: Miner?
     
-    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
         configureLayout()
