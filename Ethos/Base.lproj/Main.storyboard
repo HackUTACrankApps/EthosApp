@@ -89,6 +89,27 @@
             </objects>
             <point key="canvasLocation" x="-791.20000000000005" y="1626.3546798029558"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="MQZ-tF-F1Y">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="fZo-Hg-wNx" customClass="DetailViewController" customModule="Ethos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BY5-aq-gTE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-nw-QOb">
+                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zSc-7A-aQx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHd-eq-GMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453.60000000000002" y="1487.4384236453202"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ethos_logo" width="247" height="256"/>

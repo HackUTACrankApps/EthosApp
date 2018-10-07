@@ -67,7 +67,7 @@ class NetworkUtils {
             }.resume()
     }
     
-    static func getTemperature(rigID: String,completion: @escaping (_ model: Temperatures?) -> ()) {
+    static func getTemperatures(rigID: String,completion: @escaping (_ model: Temperatures?) -> ()) {
         let tempsURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.panelID + "&type=miner_hashes&json=yes")!
         URLSession.shared.dataTask(with: tempsURL) { (data, _, error) in
             if error != nil {

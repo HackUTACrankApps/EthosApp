@@ -17,12 +17,21 @@ public class MinerCellView: UITableViewCell {
     var icon: UIView!
     var disclosure: UIImageView!
     
+    weak var parent: OverviewViewController?
+        
     var model: Miner?
     
     override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
         configureLayout()
+    }
+    
+    public func openDetails() {
+        if let detailController: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "Detail")  as? DetailViewController {
+            detailController.miner = self.model
+            parent?.navigationController?.pushViewController(detailController, animated: true)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,8 +102,9 @@ public class MinerCellView: UITableViewCell {
         self.contentView.elevate(2)
     }
     
-    func setMiner(model: Miner) {
+    func setMiner(model: Miner, parent: OverviewViewController) {
         self.model = model
+        self.parent = parent
         
         self.title.text = "\(model.minerId!) (\(model.miner_instance ?? "0")/\(model.gpus ?? "0"))"
         self.ip.text = model.ip
