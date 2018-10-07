@@ -47,6 +47,6 @@ public class OverviewCellView: UITableViewCell {
 
     public func setLayouts() {
         title.edgeAnchors == self.contentView.edgeAnchors + 25
-        title.heightAnchor == 75
+        title.heightAnchor == 121
     }
 }

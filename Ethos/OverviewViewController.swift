@@ -82,14 +82,27 @@ public class OverviewViewController: UITableViewController {
             let titleString = NSMutableAttributedString(string: "")
             let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
             let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
-            titleString.append(NSAttributedString(string: "Temp: ", attributes: normalAttributes))
-            titleString.append(NSAttributedString(string: "\(self.model.avg_temp ?? 0)°C\n", attributes: boldAttributes))
+            titleString.append(NSAttributedString(string: "Total Hash rate: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)\n", attributes: boldAttributes))
             
             //Todo these
-            titleString.append(NSAttributedString(string: "Alive GPUs: ", attributes: normalAttributes))
-            titleString.append(NSAttributedString(string: "\(self.model.alive_gpus ?? 0)\n", attributes: boldAttributes))
-            titleString.append(NSAttributedString(string: "Hash rate: ", attributes: normalAttributes))
-            titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)", attributes: boldAttributes))
+            titleString.append(NSAttributedString(string: "GPUs: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.alive_gpus ?? 0)/\(self.model.total_gpus ?? 0)\n", attributes: boldAttributes))
+            
+            titleString.append(NSAttributedString(string: "Miners: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.alive_rigs ?? 0)/\(self.model.total_rigs ?? 0)\n", attributes: boldAttributes))
+            
+            titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
+            let numberOfPlaces = 2.0
+            let multiplier = pow(10.0, numberOfPlaces)
+            let rounded = round((self.model.avg_temp ?? 0) * multiplier) / multiplier
+            titleString.append(NSAttributedString(string: "\(rounded )°C\n", attributes: boldAttributes))
+            
+            titleString.append(NSAttributedString(string: "Total Watts: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.total_watts ?? 0)\n", attributes: boldAttributes))
+            
+            titleString.append(NSAttributedString(string: "Latest Version: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.current_version ?? "")", attributes: boldAttributes))
             
             cell.title.attributedText = titleString
             return cell
