@@ -26,6 +26,7 @@ public class Hashes {
      - returns: Json4Swift_Base Instance.
      */
     required public init?(dictionary: NSDictionary) {
+        gpus = NSDictionary()
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
                 //print(item)
