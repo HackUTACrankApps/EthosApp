@@ -44,25 +44,24 @@ class NetworkUtils {
     }
     
     static func getHashes(rigID: String,completion: @escaping (_ model: Hashes?) -> ()) {
-        let hashesURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.panelID + "&type=miner_hashes&json=yes")!
-        URLSession.shared.dataTask(with: hashesURL) { (data, _, error) in
+        let finalURL = URL(string: "http://ethosdistro.com/graphs/?rig=" + rigID + "&panel=" + NetworkUtils.panelID + "&type=miner_hashes&json=yes")!
+        URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if error != nil {
                 print(error ?? "Error loading data")
                 //todo handle this
                 completion(nil)
             } else {
                 do {
+                    //print(String(data:data!,encoding:.utf8))
                     guard let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary else {
                         return
                     }
-                    
                     let hashModel = Hashes.init(dictionary: json)
                     completion(hashModel)
                 } catch let error as NSError {
                     print(error)
                     completion(nil)
                 }
-                completion(nil)
             }
             }.resume()
     }

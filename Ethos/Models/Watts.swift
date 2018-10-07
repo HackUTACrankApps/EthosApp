@@ -41,10 +41,10 @@ public class Watts {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        let dictionary = NSMutableDictionary()
+        //let dictionary = NSMutableDictionary()
+        let dictionary = gpus?.mutableCopy()
         
-        
-        return dictionary
+        return dictionary as! NSDictionary
     }
     
 }

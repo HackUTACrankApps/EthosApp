@@ -28,7 +28,10 @@ public class Hashes {
     required public init?(dictionary: NSDictionary) {
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
-                gpus?.setValue(dictionary[item], forKey: item as? String ?? "")
+                //print(item)
+                //print(dictionary[item])
+                gpus?.setValue(dictionary[item], forKey: item as! String )
+                print(self.gpus)
             }
         }
     }
@@ -41,8 +44,9 @@ public class Hashes {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        let dictionary = NSMutableDictionary()
+        var dictionary = NSMutableDictionary()
         
+        //print(dictionary)
         
         return dictionary
     }

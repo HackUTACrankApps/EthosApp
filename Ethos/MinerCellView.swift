@@ -28,7 +28,7 @@ public class MinerCellView: UITableViewCell {
     }
     
     public func openDetails() {
-        if let detailController: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "Detail")  as? DetailViewController {
+        if let detailController: DetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Detail")  as? DetailViewController {
             detailController.miner = self.model
             parent?.navigationController?.pushViewController(detailController, animated: true)
         }

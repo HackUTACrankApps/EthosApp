@@ -76,7 +76,6 @@ public class OverviewViewController: UITableViewController {
     }
     
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-<<<<<<< HEAD
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "overview") as! OverviewCellView
             cell.preservesSuperviewLayoutMargins = false
@@ -96,16 +95,10 @@ public class OverviewViewController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MinerCellView
-            cell.setMiner(model: minerList[indexPath.row - 1])
+            cell.setMiner(model: minerList[indexPath.row - 1], parent: self)
             cell.preservesSuperviewLayoutMargins = false
             return cell
         }
-=======
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MinerCellView
-        cell.setMiner(model: minerList[indexPath.row], parent: self)
-        cell.preservesSuperviewLayoutMargins = false
-        return cell
->>>>>>> Initial implementation of DetailViewController
     }
     
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
