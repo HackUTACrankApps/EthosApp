@@ -106,7 +106,7 @@ public class MinerCellView: UITableViewCell {
         self.model = model
         self.parent = parent
         
-        self.title.text = "\(model.minerId!) (\(model.miner_instance ?? "0")/\(model.gpus ?? "0"))"
+        self.title.text = "\(model.minerId!) (\(model.miner_instance ?? "0")/\(model.gpus ?? "0")) \(model.condition ?? "")"
         self.ip.text = model.ip
         
         if let condition = model.condition {

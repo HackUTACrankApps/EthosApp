@@ -31,12 +31,11 @@ public class Hashes {
                 //print(item)
                 //print(dictionary[item])
                 gpus?.setValue(dictionary[item], forKey: item as! String )
-                print(self.gpus)
+                dump(gpus?[item as! String])
             }
         }
     }
-    
-    
+
     /**
      Returns the dictionary representation for the current instance.
      
@@ -44,7 +43,7 @@ public class Hashes {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        var dictionary = NSMutableDictionary()
+        let dictionary = NSMutableDictionary()
         
         //print(dictionary)
         
