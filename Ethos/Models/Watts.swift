@@ -26,9 +26,12 @@ public class Watts {
      - returns: Json4Swift_Base Instance.
      */
     required public init?(dictionary: NSDictionary) {
+        gpus = NSMutableDictionary()
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
-                gpus?.setValue(dictionary[item], forKey: item as! String)
+                //print(item)
+                //print(dictionary[item])
+                gpus?.setValue(dictionary[item], forKey: item as! String )
             }
         }
     }
@@ -41,10 +44,11 @@ public class Watts {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        //let dictionary = NSMutableDictionary()
-        let dictionary = gpus?.mutableCopy()
+        let dictionary = NSDictionary()
         
-        return dictionary as! NSDictionary
+        //print(dictionary)
+        
+        return gpus ?? dictionary
     }
     
 }

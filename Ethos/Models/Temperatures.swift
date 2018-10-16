@@ -26,9 +26,12 @@ public class Temperatures {
      - returns: Json4Swift_Base Instance.
      */
     required public init?(dictionary: NSDictionary) {
+        gpus = NSMutableDictionary()
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
-                gpus?.setValue(dictionary[item], forKey: item as! String)
+                //print(item)
+                //print(dictionary[item])
+                gpus?.setValue(dictionary[item], forKey: item as! String )
             }
         }
     }
@@ -41,10 +44,11 @@ public class Temperatures {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        let dictionary = NSMutableDictionary()
+        let dictionary = NSDictionary()
         
+        //print(dictionary)
         
-        return dictionary
+        return gpus ?? dictionary
     }
     
 }
