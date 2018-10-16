@@ -26,7 +26,7 @@ public class Hashes {
      - returns: Json4Swift_Base Instance.
      */
     required public init?(dictionary: NSDictionary) {
-        gpus = NSDictionary()
+        gpus = NSMutableDictionary()
         for item in dictionary.allKeys {
             if (dictionary[item] != nil) {
                 //print(item)
@@ -43,11 +43,11 @@ public class Hashes {
      */
     public func dictionaryRepresentation() -> NSDictionary {
         
-        let dictionary = NSMutableDictionary()
+        let dictionary = NSDictionary()
         
         //print(dictionary)
         
-        return dictionary
+        return gpus ?? dictionary
     }
     
 }

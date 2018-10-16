@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  DetailsViewController.swift
 //  Ethos
 //
 //  Created by Vijit Singh on 10/6/18.
@@ -8,14 +8,15 @@
 
 import UIKit
 
-public class DetailViewController: UIViewController {
+public class DetailsViewController: UIViewController {
     public var miner: Miner?
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var details: UITextView!
     public var loaded = false
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = miner?.minerId
         self.view.backgroundColor = .white
+        details.centerVertically()
         if !loaded {
             getData()
             loaded = true
@@ -36,6 +37,20 @@ public class DetailViewController: UIViewController {
             //print(hashes)
             //do average calculation here!
             //Not in the async
+            var total = 0.0
+            var count = 0.0
+            var avgHashes = [String] ()
+            for gpu in hashes.allKeys {
+                for item in (hashes[gpu] as! NSArray){
+                    if let range = (item as! String).range(of: " ") {
+                        let hash = (item as! String).substring(from: range.upperBound)
+                        let doubs = Double(hash)
+                        total += doubs ?? 0.0
+                    }
+                    count += 1
+                 }
+                avgHashes.append((gpu as! String) + " " + String(total/count))
+            }
             
             DispatchQueue.main.async {
                 //Update hte label here
@@ -44,11 +59,15 @@ public class DetailViewController: UIViewController {
                 let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
                 
                 
-                text.append(NSAttributedString(string: "Hash History: ", attributes: normalAttributes))
-                for gpu in hashes.allKeys {
-                    for item in (hashes[gpu] as! NSDictionary).allKeys{
-                        text.append(NSAttributedString(string: "\((hashes[gpu] as! NSDictionary)[item] ?? "")\n", attributes: boldAttributes))
-                    }
+                text.append(NSAttributedString(string: "Hash History:\n", attributes: normalAttributes))
+                /*for gpu in hashes.allKeys {
+                    text.append(NSAttributedString(string: "\(gpu)\n", attributes: boldAttributes))
+                    /*for item in (hashes[gpu] as! NSArray){
+                        text.append(NSAttributedString(string: "\(item)\n", attributes: boldAttributes))
+                    }*/
+                }*/
+                for item in avgHashes{
+                    text.append(NSAttributedString(string: "\(item)\n", attributes: boldAttributes))
                 }
                 
                 //Todo these
@@ -58,8 +77,20 @@ public class DetailViewController: UIViewController {
 //                titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)", attributes: boldAttributes))
 //
 //
-                self.detailLabel.attributedText = text
+                self.details.attributedText = text
             }
         }
     }
+}
+
+extension UITextView {
+    
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)
+        contentOffset.y = -positiveTopOffset
+    }
+    
 }
