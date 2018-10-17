@@ -54,13 +54,16 @@ public class DetailsViewController: UIViewController {
                     //Not in the async
                     var htotal = 0.0
                     var hcount = 0.0
-                    var havg = [String] ()
+                    //var havg = [String] ()
+                    let havg = NSMutableDictionary()
                     var ttotal = 0.0
                     var tcount = 0.0
-                    var tavg = [String] ()
+                    //var tavg = [String] ()
+                    let tavg = NSMutableDictionary()
                     var wtotal = 0.0
                     var wcount = 0.0
-                    var wavg = [String] ()
+                    //var wavg = [String] ()
+                    let wavg = NSMutableDictionary()
                     for gpu in hashes.allKeys {
                         for item in (hashes[gpu] as! NSArray){
                             if let hrange = (item as! String).range(of: " ") {
@@ -70,7 +73,8 @@ public class DetailsViewController: UIViewController {
                             }
                             hcount += 1
                          }
-                        havg.append((gpu as! String) + " " + String(format: "%0.2f", htotal/hcount))
+                        //havg.append((gpu as! String) + " " + String(format: "%0.2f", htotal/hcount))
+                        havg.setValue(String(format: "%0.2f", htotal/hcount), forKey: gpu as! String)
                     }
                     for gpu in temps.allKeys {
                         for item in (temps[gpu] as! NSArray){
@@ -81,7 +85,8 @@ public class DetailsViewController: UIViewController {
                             }
                             tcount += 1
                         }
-                        tavg.append((gpu as! String) + " " + String(format: "%0.2f", ttotal/tcount))
+                        //tavg.append((gpu as! String) + " " + String(format: "%0.2f", ttotal/tcount))
+                        tavg.setValue(String(format: "%0.2f", ttotal/tcount), forKey: gpu as! String)
                     }
                     for gpu in watts.allKeys {
                         for item in (watts[gpu] as! NSArray){
@@ -92,43 +97,125 @@ public class DetailsViewController: UIViewController {
                             }
                             wcount += 1
                         }
-                        wavg.append((gpu as! String) + " " + String(format: "%0.2f", wtotal/wcount))
+                        //wavg.append((gpu as! String) + " " + String(format: "%0.2f", wtotal/wcount))
+                        wavg.setValue(String(format: "%0.2f", wtotal/wcount), forKey: gpu as! String)
                     }
+                    
+                    let uptime = "\(((Int(self.miner!.uptime ?? "0") ?? 0) / 3600)) hours \(((Int(self.miner!.uptime ?? "0") ?? 0) % 3600) / 60) minutes \(((Int(self.miner!.uptime ?? "0") ?? 0) % 3600) % 60) seconds"
+                    let minerup = "\(((self.miner!.miner_secs ?? 0) / 3600)) hours \(((self.miner!.miner_secs ?? 0) % 3600) / 60) minutes \(((self.miner!.miner_secs ?? 0) % 3600) % 60) seconds"
+                    
+                    /*
+                    var curHash: [Int] = []
+                    var curTemp: [Int] = []
+                    var curPtun: [Int] = []
+                    var curWatt: [Int] = []
+                    var curFans: [Int] = []
+                    var curCore: [Int] = []
+                    var curMemo: [Int] = []
+                    var vRam: [Int] = []
+                    */
+                    
                     DispatchQueue.main.async {
-                        //Update hte label here
+                        //Update the label here
                         let text = NSMutableAttributedString(string: "")
                         let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
                         let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+                        text.append(NSAttributedString(string: "\tIP: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.ip!)\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tDriver: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.driver ?? "")", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tAlgorithm: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.miner ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tPool: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.pool ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tTotal Hash: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.hash ?? 0)\n", attributes: boldAttributes))
                         
-                        /*for gpu in hashes.allKeys {
-                         text.append(NSAttributedString(string: "\(gpu)\n", attributes: boldAttributes))
-                         /*for item in (hashes[gpu] as! NSArray){
-                         text.append(NSAttributedString(string: "\(item)\n", attributes: boldAttributes))
-                         }*/
-                         }*/
-                        
-                        text.append(NSAttributedString(string: "Hash History:\n", attributes: normalAttributes))
+                        /*text.append(NSAttributedString(string: "\tHash History:\n", attributes: normalAttributes))
                         for item in havg{
-                            text.append(NSAttributedString(string: "\t\(item)\n", attributes: boldAttributes))
+                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
                         }
                         
-                        text.append(NSAttributedString(string: "\n\nTemperature History:\n", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\n\tTemperature History:\n", attributes: normalAttributes))
                         for item in tavg{
-                            text.append(NSAttributedString(string: "\t\(item)\n", attributes: boldAttributes))
+                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
                         }
                         
-                        text.append(NSAttributedString(string: "\n\nWattage History:\n", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\n\tWattage History:\n", attributes: normalAttributes))
                         for item in wavg{
-                            let simple  = String(format: "%.2f", item)
-                            text.append(NSAttributedString(string: "\t\(item)\n", attributes: boldAttributes))
+                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
+                        }*/
+                        if ((Int(self.miner!.gpus ?? "") ?? 0) < 6){
+                            text.append(NSAttributedString(string: "\n\tGPU:", attributes: normalAttributes))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\t\(i)", attributes: normalAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\tTemps:", attributes: normalAttributes))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\tWatts:", attributes: normalAttributes))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                        } else if ((Int(self.miner!.gpus ?? "") ?? 0) < 11) {
+                            text.append(NSAttributedString(string: "\n\tGPU:", attributes: normalAttributes))
+                            for i in 0 ..< 5  {
+                                text.append(NSAttributedString(string: "\t\t\(i)", attributes: normalAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: normalAttributes))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: normalAttributes))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\n\tGPU:\t", attributes: normalAttributes))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(i)\t", attributes: normalAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: normalAttributes))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: normalAttributes))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                            }
                         }
-                        //Todo these
-        //                titleString.append(NSAttributedString(string: "Alive GPUs: ", attributes: normalAttributes))
-        //                titleString.append(NSAttributedString(string: "\(self.model.alive_gpus ?? 0)\n", attributes: boldAttributes))
-        //                titleString.append(NSAttributedString(string: "Hash rate: ", attributes: normalAttributes))
-        //                titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)", attributes: boldAttributes))
-        //
-        //
+                        
+                        text.append(NSAttributedString(string: "\n\n\tUp Time: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(uptime)\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tMiner Up: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(minerup)\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tCPU Temp: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.cpu_temp ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tSystem Load: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.load ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tMother Board: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.mobo ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tTotal RAM: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.ram ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tFree RAM: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.freespace ?? 0)\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tRX: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.rx_kbps ?? "")\n", attributes: boldAttributes))
+                        text.append(NSAttributedString(string: "\tTX: ", attributes: normalAttributes))
+                        text.append(NSAttributedString(string: "\(self.miner!.tx_kbps ?? "")\n", attributes: boldAttributes))
+
                         self.details.attributedText = text
                     }
                 }
