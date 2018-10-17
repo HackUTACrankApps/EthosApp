@@ -33,6 +33,7 @@ public class OverviewViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
+        self.view.backgroundColor = UIColor.white
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +51,7 @@ public class OverviewViewController: UITableViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         self.tableView.backgroundColor = UIColor(hexString: "#F1F3F4")
         self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "#F1F3F4")
-        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
