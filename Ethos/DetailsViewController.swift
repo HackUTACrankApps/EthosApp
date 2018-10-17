@@ -74,7 +74,7 @@ public class DetailsViewController: UIViewController {
                             hcount += 1
                          }
                         //havg.append((gpu as! String) + " " + String(format: "%0.2f", htotal/hcount))
-                        havg.setValue(String(format: "%0.2f", htotal/hcount), forKey: gpu as! String)
+                        havg.setValue(String(format: "%0.1f", htotal/hcount), forKey: gpu as! String)
                     }
                     for gpu in temps.allKeys {
                         for item in (temps[gpu] as! NSArray){
@@ -86,7 +86,7 @@ public class DetailsViewController: UIViewController {
                             tcount += 1
                         }
                         //tavg.append((gpu as! String) + " " + String(format: "%0.2f", ttotal/tcount))
-                        tavg.setValue(String(format: "%0.2f", ttotal/tcount), forKey: gpu as! String)
+                        tavg.setValue(String(format: "%0.1f", ttotal/tcount), forKey: gpu as! String)
                     }
                     for gpu in watts.allKeys {
                         for item in (watts[gpu] as! NSArray){
@@ -98,124 +98,241 @@ public class DetailsViewController: UIViewController {
                             wcount += 1
                         }
                         //wavg.append((gpu as! String) + " " + String(format: "%0.2f", wtotal/wcount))
-                        wavg.setValue(String(format: "%0.2f", wtotal/wcount), forKey: gpu as! String)
+                        wavg.setValue(String(format: "%0.1f", wtotal/wcount), forKey: gpu as! String)
                     }
                     
                     let uptime = "\(((Int(self.miner!.uptime ?? "0") ?? 0) / 3600)) hours \(((Int(self.miner!.uptime ?? "0") ?? 0) % 3600) / 60) minutes \(((Int(self.miner!.uptime ?? "0") ?? 0) % 3600) % 60) seconds"
                     let minerup = "\(((self.miner!.miner_secs ?? 0) / 3600)) hours \(((self.miner!.miner_secs ?? 0) % 3600) / 60) minutes \(((self.miner!.miner_secs ?? 0) % 3600) % 60) seconds"
                     
-                    /*
-                    var curHash: [Int] = []
-                    var curTemp: [Int] = []
-                    var curPtun: [Int] = []
-                    var curWatt: [Int] = []
-                    var curFans: [Int] = []
-                    var curCore: [Int] = []
-                    var curMemo: [Int] = []
-                    var vRam: [Int] = []
-                    */
+                    let curHash = (self.miner!.miner_hashes ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curTemp = (self.miner!.temp ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curPtun = (self.miner!.powertune ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curWatt = (self.miner!.watts ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curVolt = (self.miner!.voltage ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curFans = (self.miner!.fanrpm ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curCore = (self.miner!.core ?? "").characters.split{$0 == " "}.map(String.init)
+                    let curMemo = (self.miner!.mem ?? "").characters.split{$0 == " "}.map(String.init)
+                    let vram = (self.miner!.vramsize ?? "").characters.split{$0 == " "}.map(String.init)
                     
                     DispatchQueue.main.async {
                         //Update the label here
                         let text = NSMutableAttributedString(string: "")
                         let normalAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
                         let boldAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
-                        text.append(NSAttributedString(string: "\tIP: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.ip!)\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tDriver: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.driver ?? "")", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tAlgorithm: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.miner ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tPool: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.pool ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tTotal Hash: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.hash ?? 0)\n", attributes: boldAttributes))
+                        let monospacedNormalAttributes = [NSAttributedString.Key.font: UIFont.init(name: "Courier", size: 14)]
+                        let monospacedBoldAttributes = [NSAttributedString.Key.font: UIFont.init(name: "Courier-Bold", size: 14)]
+                        text.append(NSAttributedString(string: "\tIP: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.ip!)", attributes: monospacedBoldAttributes))
+                        text.append(NSAttributedString(string: "\tDriver: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.driver ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tAlgorithm: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.miner ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tPool: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.pool ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tTotal Hash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.hash ?? 0)\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                         
-                        /*text.append(NSAttributedString(string: "\tHash History:\n", attributes: normalAttributes))
-                        for item in havg{
-                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
-                        }
+                        text.append(NSAttributedString(string: "\n\tCurrent Stats:\n", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                         
-                        text.append(NSAttributedString(string: "\n\tTemperature History:\n", attributes: normalAttributes))
-                        for item in tavg{
-                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
-                        }
-                        
-                        text.append(NSAttributedString(string: "\n\tWattage History:\n", attributes: normalAttributes))
-                        for item in wavg{
-                            text.append(NSAttributedString(string: "\t\t\t\(item)\n", attributes: boldAttributes))
-                        }*/
                         if ((Int(self.miner!.gpus ?? "") ?? 0) < 6){
-                            text.append(NSAttributedString(string: "\n\tGPU:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\t\(i)", attributes: normalAttributes))
+                                text.append(NSAttributedString(string: "\(i)".leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(curHash[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\tTemps:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\t\(curTemp[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\tWatts:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\t\(curWatt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tPtune:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: ("\(curPtun[i])").trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVolts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curVolt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tFans: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curFans[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tCore: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curCore[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tMem:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curMemo[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVRAM: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(vram[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            
+                        } else if((Int(self.miner!.gpus ?? "") ?? 0) < 11){
+                            text.append(NSAttributedString(string: "\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\(i)".leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\(curHash[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curTemp[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curWatt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tPtune:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: ("\(curPtun[i])").trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVolts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curVolt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tFans: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curFans[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tCore: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curCore[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tMem:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(curMemo[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVRAM: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< 5 {
+                                text.append(NSAttributedString(string: "\t\(vram[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            
+                            text.append(NSAttributedString(string: "\n\n\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(i)".leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(curHash[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curTemp[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curWatt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tPtune:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: ("\(curPtun[i])").trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVolts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curVolt[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tFans: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curFans[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tCore: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curCore[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tMem:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(curMemo[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tVRAM: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\t\(vram[i])".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                        }
+                        
+                        text.append(NSAttributedString(string: "\n\n\tUp Time: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(uptime)\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tMiner Up: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(minerup)\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tCPU Temp: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.cpu_temp ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tSystem Load: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.load ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tMother Board: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.mobo ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tTotal RAM: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.ram ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tFree RAM: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.freespace ?? 0)\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tRX: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.rx_kbps ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\tTX: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        text.append(NSAttributedString(string: "\(self.miner!.tx_kbps ?? "")\n", attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+
+                        text.append(NSAttributedString(string: "\n\tHistorical Averages:\n", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                        
+                        if ((Int(self.miner!.gpus ?? "") ?? 0) < 6){
+                            text.append(NSAttributedString(string: "\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(i)".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(havg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(tavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
+                            }
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
+                            for i in 0 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
+                                text.append(NSAttributedString(string: "\(wavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
                         } else if ((Int(self.miner!.gpus ?? "") ?? 0) < 11) {
-                            text.append(NSAttributedString(string: "\n\tGPU:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< 5  {
-                                text.append(NSAttributedString(string: "\t\t\(i)", attributes: normalAttributes))
+                                text.append(NSAttributedString(string: "\(i)".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< 5 {
-                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(havg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< 5 {
-                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(tavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 0 ..< 5 {
-                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(wavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\n\tGPU:\t", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\n\tGPU:  ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(i)\t", attributes: normalAttributes))
+                                text.append(NSAttributedString(string: "\(i)".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tHash:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tHash: ", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(havg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(havg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tTemps:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(tavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(tavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
-                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: normalAttributes))
+                            text.append(NSAttributedString(string: "\n\tWatts:", attributes: monospacedNormalAttributes as [NSAttributedString.Key : Any]))
                             for i in 5 ..< (Int(self.miner!.gpus ?? "") ?? 0) {
-                                text.append(NSAttributedString(string: "\t\(wavg["GPU" + String(i)] ?? "0")", attributes: boldAttributes))
+                                text.append(NSAttributedString(string: "\(wavg["GPU" + String(i)] ?? "0")".trimmingCharacters(in: .whitespaces).leftPadding(toLength: 6 ,withPad:" "), attributes: monospacedBoldAttributes as [NSAttributedString.Key : Any]))
                             }
                         }
                         
-                        text.append(NSAttributedString(string: "\n\n\tUp Time: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(uptime)\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tMiner Up: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(minerup)\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tCPU Temp: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.cpu_temp ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tSystem Load: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.load ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tMother Board: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.mobo ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tTotal RAM: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.ram ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tFree RAM: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.freespace ?? 0)\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tRX: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.rx_kbps ?? "")\n", attributes: boldAttributes))
-                        text.append(NSAttributedString(string: "\tTX: ", attributes: normalAttributes))
-                        text.append(NSAttributedString(string: "\(self.miner!.tx_kbps ?? "")\n", attributes: boldAttributes))
-
                         self.details.attributedText = text
                     }
                 }
@@ -234,4 +351,15 @@ extension UITextView {
         contentOffset.y = -positiveTopOffset
     }
     
+}
+
+extension String {
+    func leftPadding(toLength: Int, withPad character: Character) -> String {
+        let newLength = self.characters.count
+        if newLength < toLength {
+            return String(repeatElement(character, count: toLength - newLength)) + self
+        } else {
+            return self.substring(from: index(self.startIndex, offsetBy: newLength - toLength))
+        }
+    }
 }
