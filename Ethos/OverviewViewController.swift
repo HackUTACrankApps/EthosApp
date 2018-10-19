@@ -62,10 +62,11 @@ public class OverviewViewController: UITableViewController {
                 //todo somehow show an error
                 return
             }
-            
             self.model = ethosModel
             self.minerList = (ethosModel.rigs?.miners ?? []).sorted(by: { (A, B) -> Bool in
-                return A.condition != "mining" || (Int(A.miner_instance ?? "0") ?? 0) < (Int(B.miner_instance ?? "0") ?? 0)
+                let Aratio = (Float((Int(A.miner_instance ?? "0") ?? 0))/Float((Int(A.gpus ?? "0") ?? 0)))
+                let Bratio = (Float((Int(B.miner_instance ?? "0") ?? 0))/Float((Int(B.gpus ?? "0") ?? 0)))
+                return A.condition != "mining" || ( Aratio < Bratio )
             })
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -86,18 +87,17 @@ public class OverviewViewController: UITableViewController {
             titleString.append(NSAttributedString(string: "Total Hash rate: ", attributes: normalAttributes))
             titleString.append(NSAttributedString(string: "\(self.model.total_hash ?? 0)\n", attributes: boldAttributes))
             
-            //Todo these
+            titleString.append(NSAttributedString(string: "Miners: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "\(self.model.alive_rigs ?? 0)/\(self.model.total_rigs ?? 0)\t\t", attributes: boldAttributes))
+            
             titleString.append(NSAttributedString(string: "GPUs: ", attributes: normalAttributes))
             titleString.append(NSAttributedString(string: "\(self.model.alive_gpus ?? 0)/\(self.model.total_gpus ?? 0)\n", attributes: boldAttributes))
             
-            titleString.append(NSAttributedString(string: "Miners: ", attributes: normalAttributes))
-            titleString.append(NSAttributedString(string: "\(self.model.alive_rigs ?? 0)/\(self.model.total_rigs ?? 0)\n", attributes: boldAttributes))
-            
-            titleString.append(NSAttributedString(string: "Temperature: ", attributes: normalAttributes))
+            titleString.append(NSAttributedString(string: "Avg Temp: ", attributes: normalAttributes))
             let numberOfPlaces = 2.0
             let multiplier = pow(10.0, numberOfPlaces)
             let rounded = round((self.model.avg_temp ?? 0) * multiplier) / multiplier
-            titleString.append(NSAttributedString(string: "\(rounded )°C\n", attributes: boldAttributes))
+            titleString.append(NSAttributedString(string: "\(rounded )°C\t", attributes: boldAttributes))
             
             titleString.append(NSAttributedString(string: "Total Watts: ", attributes: normalAttributes))
             titleString.append(NSAttributedString(string: "\(self.model.total_watts ?? 0)\n", attributes: boldAttributes))
